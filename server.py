@@ -16,6 +16,7 @@ def home():
 def process():
     if(request.method == "POST"):
         image = request.files.get("imagefile", "")
+        print(image)
         b64_image = base64.b64encode(image.read()).decode("utf-8")
         response = process_image(b64_image)
         return response["message"]["content"]
